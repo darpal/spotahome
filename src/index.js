@@ -15,16 +15,15 @@ class App extends React.Component {
   handleCityChange = newCity => {
     // take new city
     // update stat with new city
-    // console.log(this.state.city);
     let test = newCity.target.value;
-    this.setState(function(state, test) {
+    this.setState(function(state, props) {
       return {
         city: test
       };
     });
   };
 
-  componentDidMount() {
+  getHomesData() {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
     axios
@@ -49,6 +48,17 @@ class App extends React.Component {
             this.setState({ homes });
           })
       );
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    if (this.props.city !== nextProps.city) {
+      this.getHomesData();
+    }
+  }
+
+  componentDidMount() {
+    this.getHomesData();
   }
 
   render() {
