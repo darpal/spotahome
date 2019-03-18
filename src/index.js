@@ -9,7 +9,8 @@ class App extends React.Component {
   state = {
     ids: [],
     city: "madrid",
-    homes: []
+    homes: [],
+    loading: true
   };
 
   handleCityChange = newCity => {
@@ -46,18 +47,20 @@ class App extends React.Component {
           .then(res => {
             const homes = res.data.data.homecards;
             this.setState({ homes });
+            this.setState({ loading: true });
           })
       );
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-    if (this.props.city !== nextProps.city) {
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.city !== prevState.city) {
       this.getHomesData();
     }
   }
 
   componentDidMount() {
+    console.log("componentDidMount");
     this.getHomesData();
   }
 
