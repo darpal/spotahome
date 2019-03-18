@@ -9,22 +9,22 @@ class App extends React.Component {
   state = {
     ids: [],
     city: "madrid",
-    homes: []
+    homes: [],
+    loading: true
   };
 
   handleCityChange = newCity => {
     // take new city
     // update stat with new city
-    // console.log(this.state.city);
     let test = newCity.target.value;
-    this.setState(function(state, test) {
+    this.setState(function(state, props) {
       return {
         city: test
       };
     });
   };
 
-  componentDidMount() {
+  getHomesData() {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
     axios
@@ -47,8 +47,20 @@ class App extends React.Component {
           .then(res => {
             const homes = res.data.data.homecards;
             this.setState({ homes });
+            this.setState({ loading: true });
           })
       );
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.city !== prevState.city) {
+      this.getHomesData();
+    }
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount");
+    this.getHomesData();
   }
 
   render() {
