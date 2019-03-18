@@ -12,6 +12,7 @@ class CitySelector extends React.Component {
           <option value="madrid" selected>
             Madrid
           </option>
+          <option value="barcelona">Barcelona</option>
           <option value="london">London</option>
         </select>
       </div>
