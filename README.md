@@ -1,2 +1,0 @@
-# spotahome
-Created with CodeSandbox
