@@ -17,7 +17,7 @@ class App extends React.Component {
     // update stat with new city
     // console.log(this.state.city);
     let test = newCity.target.value;
-    this.setState(function(state, test) {
+    this.setState(function(state, props) {
       return {
         city: test
       };
