@@ -5,6 +5,8 @@ import axios from "axios";
 import HomeList from "./components/_homesList.jsx";
 import CitySelector from "./components/_citySelector.jsx";
 
+import "./styles.css";
+
 class App extends React.Component {
   state = {
     ids: [],
@@ -51,7 +53,6 @@ class App extends React.Component {
           })
       );
   }
-
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.city !== prevState.city) {
