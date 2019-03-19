@@ -1,4 +1,4 @@
-# SPOT’A’HOME REACT
+# HOME REACT
 
 This is a React version to be added to the previous responsive jquery version. 
 
