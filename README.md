@@ -7,7 +7,8 @@ In this solution I strive, in the minimal time I have, to showcase JSX, ES6 and 
 This is based on the [Create React App](https://github.com/facebook/create-react-app) template meaning it has many more components such as Babbel and webpack.
 
 ## Requirements 
-This app requires node.js
+* This app requires node.js 
+* You might need to disable Cross-Origin Restrictions
 
 ## Installation
 1. Install node.js
